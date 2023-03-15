@@ -17,6 +17,7 @@ fetch(
               <div class="card">
                <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
                 <span class="title">${item.title}</span>
+                <span>${item.overview}</span>
                 <span class="release-date">⭐${item.vote_average}</span>
                 <button>Details</button>
               </div>`;
