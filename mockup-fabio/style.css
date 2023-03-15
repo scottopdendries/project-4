@@ -5,6 +5,7 @@
     box-sizing: border-box;
   }
   
+  
   body{
     background-color: #000;
     color: #fff;
@@ -37,6 +38,7 @@
     padding: 2rem;
     font-size: 2rem;
     font-weight: bold;
+    font-family: 'Limelight', cursive;
   }
   .grid-movies{
       display: flex;
@@ -56,11 +58,15 @@
     justify-content: space-between;
     background-color: #111;
     padding: 1rem;
+    border-radius: 20px;
+    border: solid 2px silver;
+    border-radius: 20px;
   }
 
   .card img,
   .card span{
     margin-bottom: 1rem;
+    border-radius: 20px;
   }
 
   .card button{
@@ -74,8 +80,13 @@
     text-align: center;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 20px;
 }
 
+.title{
+  color: darkred;
+  font-size: 22px;
+}
 
 .card button:hover{
     background-color: #b8930c;
