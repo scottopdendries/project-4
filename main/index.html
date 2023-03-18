@@ -8,25 +8,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
   <nav>
-    <div>
-      <!-- Add icon -->
+    <div class="nav-content-left">
+      <img src="/images/logo.png" alt="logo">
       <button>Movies</button>
       <button>TV Shows</button>
       <button>All</button>
     </div>
-    <div>
-      <input type="text" placeholder="Search">
-      <button>
-        Sort/Filter
-        <!-- Add arrow -->
-      </button>
+    <div class="nav-content-right">
+      <div class="search">
+        <input type="text" placeholder="Search">
+        <button class="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <button>Sort/Filter <i class="fa-solid fa-angle-right"></i></button>
     </div>
   </nav>
 
@@ -45,5 +47,6 @@
   </footer>
 
   <script src="./script.js"></script>
+  <script src="https://kit.fontawesome.com/1bc6bf2f3d.js" crossorigin="anonymous"></script>
 </body>
 </html>
