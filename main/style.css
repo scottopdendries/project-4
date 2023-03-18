@@ -10,9 +10,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  background-color: var(--grey);
+  /* background-color: var(--grey); */ /*Don't think we need this*/
   color: var(--grey);
 }
 
@@ -27,15 +27,75 @@ nav {
 
 nav button {
   border: none;
-  background-color: black;
+  background-color: var(--black);
   cursor: pointer;
 }
-nav button:hover{
+
+.nav-content-right button:hover {
   background-color: var(--red);
   color: var(--black);
 }
 
+.nav-content-right button:hover i {
+  color: var(--black);
+}
 
+/*The two lines of code above allows to change the button AND the i element at the same time when hovering*/
+
+.nav-content-left button:hover {
+  background-color: var(--red);
+  color: var(--black);
+}
+
+nav img {
+  height: 50px;
+}
+
+.nav-content-left {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-content-right {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav input {
+  text-align: center;
+  width: 120px;
+  background-color: transparent;
+  border: 1px solid var(--red);
+  height: 25px;
+  border-radius: 20px 0 0 20px;
+}
+
+.magnifying-glass {
+  border: 1px solid var(--red);
+  height: 25px;
+  width: 30px;
+  border-radius: 0 20px 20px 0;
+}
+
+.search {
+  display: flex;
+}
+
+nav i {
+  color: var(--red);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+#mobile-logo {
+  display: none;
+}
 
 .container{
   display: flex;
@@ -89,4 +149,29 @@ footer {
   bottom: 0;
   height: 100px;
   width: 100%;
+}
+
+/*Hamburger menu for mobile screen FROM #hamburger-menu to .nav-content-right*/
+
+@media (max-width: 768px) {
+
+  #hamburger-menu {
+    display: block;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+  #mobile-logo {
+    display: block;
+    margin-left: 15px;
+  }
+
+  .nav-content-left {
+    display: none;
+  }
+
+  .nav-content-right {
+    display: none;
+  }
+
 }
