@@ -1,45 +1,40 @@
-- [Notion](https://mimodocs.notion.site/Unit-4-Team-Project-Guide-57e4db17c23040dba84fa8204577fb9b)
-
-To Do:
-Notion page - Ja'far
-GitHub - Scott
-Design - Scott
-
-
-### Week 1:  Research & Plan
+## Week 1:  Research & Plan
 
 <!-- 1. **Schedule the first Zoom call with your team members.**  -->
 <!-- 2. **During the first team meeting, appoint a team leader.** -->
 <!-- 3. **Determine the dates and frequency of future team meetings.** -->
 
-4. **Create a Notion page for project management. (Team Leader)**
+<!-- 4. **Create a Notion page for project management. (Team Leader)**
 - Invite all team members, the instructor, and the mentor to the Notion page with edit permissions.
 - In this notion page include the following: 
     The project name.
     The names of all team members.
     The link to your Figma design (once it is created).
     The link to your Github repo (once it is created)
-    A Kanban board for project management.
+    A Kanban board for project management. -->
 
-[Notion-Project-Management.mov](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7d8459c-96f8-4060-96ff-cec248d14a2b/Notion-Project-Management.mov)
+<!-- [Notion-Project-Management.mov](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7d8459c-96f8-4060-96ff-cec248d14a2b/Notion-Project-Management.mov) -->
 
-1. **Create the “To Do” items and assign to team members during your regular zoom calls.** 
-Do not try to create all tasks at once. Plan for the current week and adjust your plan as needed.
-2. **Decide on the scope of the project:**
+<!-- 1. **Create the “To Do” items and assign to team members during your regular zoom calls.** 
+Do not try to create all tasks at once. Plan for the current week and adjust your plan as needed. -->
+<!-- 2. **Decide on the scope of the project:**
 -The first step is to decide on the scope of the project. This will help determine the level of complexity of the project and the features to be included.
 -Consider the following questions:
+
    Who is the target audience?
-      Movie go-ers
+      Anyone who watches tv/movies.
    What problem will the project solve?
-      Finding a movie to watch
+      Narrowing down what kind of show/film to watch.
    What are the must-have features?
-      Information tab/button
-      Search based on category
+      Featured show/movie.
+      Scrollable columns.
+      Expandable (Able to see description, genre, trailer).
+      Search and/or filter function(s).
 
    What features are optional?
-      Trailers
+      Cards that have a 'flip' visual. -->
 
-3. **Choose an API (Application Programming Interface):**
+<!-- 3. **Choose an API (Application Programming Interface):**
 
       - Consider the following when choosing an API:
 
@@ -62,4 +57,4 @@ Do not try to create all tasks at once. Plan for the current week and adjust you
     [Numbers](http://numbersapi.com/#42)
     [Dog API](https://dog.ceo/dog-api/)
     [Pokémon API](https://pokeapi.co/docs/v2#pokemon)
-    [Now Playing Movies](https://www.themoviedb.org/movie/now-playing)
+    [Now Playing Movies](https://www.themoviedb.org/movie/now-playing) -->

@@ -1,5 +1,3 @@
-- [Notion](https://mimodocs.notion.site/Unit-4-Team-Project-Guide-57e4db17c23040dba84fa8204577fb9b)
-
 ### Weeks 3-4: Build & Publish
 
 During this phase, your team will build the website using HTML, CSS, and JavaScript, incorporating the API to fetch data and display it on the website. You will also need to organise your code using JavaScript modules to ensure that it is easy to maintain and update in the future and use Github to collaborate.

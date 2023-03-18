@@ -1,5 +1,3 @@
-- [Notion](https://mimodocs.notion.site/Unit-4-Team-Project-Guide-57e4db17c23040dba84fa8204577fb9b)
-
 ### Week 2: Design
 
 During this phase, your team will create the visual design for your website, including layout, color scheme, typography, and imagery. You may use wireframes, mockups, or other design tools to create a visual representation of the website.
