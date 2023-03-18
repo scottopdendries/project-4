@@ -27,7 +27,7 @@ nav {
 
 nav button {
   border: none;
-  background-color: black;
+  background-color: var(--black);
   cursor: pointer;
 }
 
@@ -89,6 +89,14 @@ nav i {
   color: var(--red);
 }
 
+#hamburger-menu {
+  display: none;
+}
+
+#mobile-logo {
+  display: none;
+}
+
 .container{
   display: flex;
 }
@@ -141,4 +149,29 @@ footer {
   bottom: 0;
   height: 100px;
   width: 100%;
+}
+
+/*Hamburger menu for mobile screen FROM #hamburger-menu to .nav-content-right*/
+
+@media (max-width: 768px) {
+
+  #hamburger-menu {
+    display: block;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+  #mobile-logo {
+    display: block;
+    margin-left: 15px;
+  }
+
+  .nav-content-left {
+    display: none;
+  }
+
+  .nav-content-right {
+    display: none;
+  }
+
 }
