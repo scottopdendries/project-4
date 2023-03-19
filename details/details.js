@@ -34,7 +34,7 @@ fetch(
         let movieDetails = movies.map((item) => {
           if(currentId == item.id){
         return`
-                <h1>${item.title}</h1>
+                <h1 class="movie-title">${item.title}</h1>
                 <p>${item.overview}</p>
                 <p>${item.release_date}</p>
                 <p>${item.vote_average} ⭐️</p>

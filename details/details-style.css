@@ -53,7 +53,12 @@ nav{
     justify-items: center;
 }
 
-.details-container h1, p{
+.movie-title{
+    padding-top: 90px;
+    color: var(--orange);
+}
+
+.details-container p{
     color: var(--black);
     padding-top: 90px;
 }
