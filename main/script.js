@@ -17,10 +17,10 @@ fetch(
     .catch((err) => console.log(err));
   
 
-
+///Raymond changed the DIV class to a class to allow each image to be clicked on for a details page.
 function displayMovie(movies) {
   let details = movies.map((item) => {
-    return `
+    return ` 
       <a class="card" href="../details/details.html?id=${item.id}">
         <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
         <div class="rating">${item.vote_average}</div>
