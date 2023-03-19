@@ -5,54 +5,76 @@ const column3 = document.querySelector(".column-3");
 const column4 = document.querySelector(".column-4");
 const column5 = document.querySelector(".column-5");
 
+let column = "";
+column = column2;
+
 // API Fetch
 fetch(api)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
 
-      media = data.results;
-      renderColumn(media);
+      const media = data.results;
+      sortAtoZ(media, column);
+      sortZtoA(media, column);
+      sortByPopularityDescending(media, column);
+      sortByPopularityAscending(media, column);
+      sortByReleaseDescending(media, column);
+      sortByReleaseAscending(media, column);
+      sortByRatingDescending(media, column);
+      sortByRatingAscending(media, column);
     })
     .catch((err) => console.log(err));
 
 // Functions
-function renderColumn(media) {
-  let details = media.map((item) => `
-    <div class="card">
-      <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-      <div class="rating">${item.vote_average}</div>
-    </div>`
-    ).join('');
-
-    column1.innerHTML = details;
-    column2.innerHTML = details;
-    column3.innerHTML = details;
-    column4.innerHTML = details;
-    column5.innerHTML = details;
+function cardSyntax(item) {
+  return `
+  <div class="card">
+    <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
+    <div class="rating">${item.vote_average}</div>
+  </div>
+  `;
 }
 
-function sortAtoZ(media) {
-  return media.sort((a, b) => a.title.localeCompare(b.title));
+// Scott: Update sortAtoZ and sortZtoA to ignore 'a' and 'the'.
+// For example, show The Whale as W in the alphabet, and not T"
+function sortAtoZ(media, column) {
+  let details = media.sort((a, b) => a.title.localeCompare(b.title)).map(item => cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>A to Z</h2>${details}`;
 }
-function sortZtoA(media) {
-  return media.sort((a, b) => b.title.localeCompare(a.title));
+function sortZtoA(media, column) {
+  let details = media.sort((a, b) => b.title.localeCompare(a.title)).map(item =>cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>Z to A</h2>${details}`;
 }
-function sortByPopularityDescending(media) {
-  return media.sort((a, b) => b.popularity - a.popularity);
+function sortByPopularityDescending(media, column) {
+  let details = media.sort((a, b) => b.popularity - a.popularity).map(item => cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>Popularity: High to Low</h2>${details}`;
 }
-function sortByPopularityAscending(media) {
-  return media.sort((a, b) => a.popularity - b.popularity);
+function sortByPopularityAscending(media, column) {
+  let details = media.sort((a, b) => a.popularity - b.popularity).map(item => cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>Popularity: Low to High</h2>${details}`;
 }
-function sortByReleaseDescending(media) {
-  return media.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+function sortByReleaseDescending(media, column) {
+  let details = media.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).map(item => cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>New Releases</h2>${details}`;
 }
-function sortByReleaseAscending(media) {
-  return media.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+function sortByReleaseAscending(media, column) {
+  let details = media.sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).map(item => cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>Least Recent to Newest</h2>${details}`;
 }
-function sortByRatingDescending(media) {
-  return media.sort((a, b) => b.vote_average - a.vote_average);
+function sortByRatingDescending(media, column) {
+  let details = media.sort((a, b) => b.vote_average - a.vote_average).map(item => cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>Ratings: Low to High</h2>${details}`;
 }
-function sortByRatingAscending(media) {
-  return media.sort((a, b) => a.vote_average - b.vote_average);
+function sortByRatingAscending(media, column) {
+  let details = media.sort((a, b) => a.vote_average - b.vote_average).map(item => cardSyntax(item)
+  ).join('');
+  column.innerHTML = `<h2>Ratings: High to Low </h2>${details}`;
 }
