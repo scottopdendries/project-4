@@ -28,10 +28,9 @@ fetch(
                 `;
                 }
         }).join('');
-        console.log(movies);
         posterMovies.innerHTML = selectedMovie;
 
-///Raymond: movie information
+///Raymond: movie details
         let movieDetails = movies.map((item) => {
           if(currentId == item.id){
         return`
