@@ -1,0 +1,56 @@
+:root {
+    --black: #000000;
+    --grey: #CBD3D8;
+    --red: #E50914;
+    --orange: #E79212;
+    --green: #1CBD19;
+  }
+
+
+nav{
+    background-color: var(--black);
+    color: var(--red);
+}
+
+.back-arrow{
+    font-size: 20px;
+    border: transparent;
+    background-color: #000000;
+    color: red;
+    text-decoration: none;
+}
+
+.movie-container{
+    display: flex;
+}
+
+.poster-container{
+    width: 60%;
+}
+
+.poster{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backdrop{
+    position: absolute;
+}
+
+.backdrop img{
+    width: 100%;
+    
+    opacity: 30%;
+}
+
+
+.poster img{
+    width: 330px;
+    height: 550px;
+}
+
+.details-container{
+    width: 40%;
+    text-align: center;
+}

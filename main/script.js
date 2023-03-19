@@ -21,15 +21,16 @@ fetch(
 function displayMovie(movies) {
   let details = movies.map((item) => {
     return `
-      <div class="card">
+      <a class="card" href="../details/details.html?id=${item.id}">
         <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
         <div class="rating">${item.vote_average}</div>
-      </div>`;
+      </a>`;
     }).join('');
-      
+    console.log(movies)
     column1.innerHTML = details;
     column2.innerHTML = details;
     column3.innerHTML = details;
     column4.innerHTML = details;
     column5.innerHTML = details;
   }
+
