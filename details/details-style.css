@@ -21,12 +21,14 @@ nav{
 
 .movie-container{
     display: flex;
+    height: 100vh;
 }
 
 
 .poster-container{
     width: 60%;
     text-align: center;
+    background-color: var(--grey);
 }
 
 .backdrop-img{
@@ -45,8 +47,13 @@ nav{
 
 .details-container{
     width: 40%;
+    background-color: var(--grey);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     justify-items: center;
+}
+
+.details-container h1, p{
+    color: var(--black);
+    padding-top: 90px;
 }
