@@ -31,6 +31,10 @@ nav button {
   cursor: pointer;
 }
 
+.nav-content-right{
+  margin-right: 30px;
+}
+
 .nav-content-right button:hover {
   background-color: var(--red);
   color: var(--black);
@@ -66,23 +70,12 @@ nav img {
 }
 
 nav input {
-  text-align: center;
-  width: 120px;
+  width: 170px;
+  padding: 10px;
   background-color: transparent;
   border: 1px solid var(--red);
-  height: 25px;
-  border-radius: 20px 0 0 20px;
-}
-
-.magnifying-glass {
-  border: 1px solid var(--red);
-  height: 25px;
-  width: 30px;
-  border-radius: 0 20px 20px 0;
-}
-
-.search {
-  display: flex;
+  border-radius: 20px;
+  outline: none;
 }
 
 nav i {
