@@ -6,7 +6,7 @@ const column4 = document.querySelector(".column-4");
 const column5 = document.querySelector(".column-5");
 
 let column = "";
-column = column2;
+column = column;
 
 // API FETCH
 fetch(api)
@@ -17,7 +17,7 @@ fetch(api)
       const movie = data.results;
       sortAtoZ(movie, column);
       sortZtoA(movie, column);
-      sortByPopularityDescending(movie, column);
+      sortByPopularityDescending(movie, column1);
       sortByPopularityAscending(movie, column);
       sortByReleaseDescending(movie, column);
       sortByReleaseAscending(movie, column);
@@ -25,6 +25,52 @@ fetch(api)
       sortByRatingAscending(movie, column);
     })
     .catch((err) => console.log(err));
+
+
+
+    // Drop-down menu - in progress
+    const movieSortSelect = document.getElementById("movie-sort");
+
+    movieSortSelect.addEventListener("change", function(e){
+      const userChoice = e.target.value;
+      switch(userChoice) {
+        case "pop-desc":
+          alert("Popularity: High to Low");
+          break;
+        case "pop-asc":
+          alert("Popularity: Low to High");
+          break;
+        case "rate-desc":
+          alert("Ratings: High to Low");
+          break;
+        case "rate-asc":
+          alert("Ratings: Low to High");
+          break;
+        case "date-desc":
+          alert("Most Recent");
+          break;
+        case "date-asc":
+          alert("Least Recent");
+          break;
+        case "AtoZ":
+          alert("A to Z");
+          break;
+        case "ZtoA":
+          alert("Z to A");
+          break;
+      }
+    } )
+    // Value references (from HTML):
+    // <option value="pop-desc">Popularity: High to Low</option>
+    // <option value="pop-asc">Popularity: Low to High</option>
+    // <option value="rat-desc">Ratings: High to Low</option>
+    // <option value="rat-asc">Ratings: Low to High</option>
+    // <option value="date-desc">Most Recent</option>
+    // <option value="date-asc">Least Recent</option>
+    // <option value="AtoZ">Alphabetical: A to Z</option>
+    // <option value="ZtoA">Alphabetical: Z to A</option>
+
+
 
 // CARD SYNTAX FUNCTION
 function cardSyntax(item) {
@@ -137,10 +183,10 @@ function displayMovie(movies) {
     }).join('');
     console.log(movies)
     // These next 5 column lines might be able to be deleted. Worth looking into, but not a high priority. - Scott
-    column1.innerHTML = details;
-    column2.innerHTML = details;
-    column3.innerHTML = details;
-    column4.innerHTML = details;
-    column5.innerHTML = details;
+    // column1.innerHTML = details;
+    // column2.innerHTML = details;
+    // column3.innerHTML = details;
+    // column4.innerHTML = details;
+    // column5.innerHTML = details;
   }
 
