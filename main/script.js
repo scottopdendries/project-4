@@ -14,15 +14,15 @@ fetch(api)
     .then((data) => {
       console.log(data);
 
-      const media = data.results;
-      sortAtoZ(media, column);
-      sortZtoA(media, column);
-      sortByPopularityDescending(media, column);
-      sortByPopularityAscending(media, column);
-      sortByReleaseDescending(media, column);
-      sortByReleaseAscending(media, column);
-      sortByRatingDescending(media, column);
-      sortByRatingAscending(media, column);
+      const movie = data.results;
+      sortAtoZ(movie, column);
+      sortZtoA(movie, column);
+      sortByPopularityDescending(movie, column);
+      sortByPopularityAscending(movie, column);
+      sortByReleaseDescending(movie, column);
+      sortByReleaseAscending(movie, column);
+      sortByRatingDescending(movie, column);
+      sortByRatingAscending(movie, column);
     })
     .catch((err) => console.log(err));
 
@@ -36,50 +36,52 @@ function cardSyntax(item) {
   `;
 }
 
-// Scott: Update sortAtoZ and sortZtoA to ignore 'a' and 'the'.
-// For example, show The Whale as W in the alphabet, and not T"
-function sortAtoZ(media, column) {
-  let details = media.sort((a, b) => a.title.localeCompare(b.title)).map(item => cardSyntax(item)
+// sortAtoZ and sortZtoA can be updated to omit 'a' and 'the'.
+// ie, show 'The Whale' as 'W' in the alphabet instead of 'T'.
+// - Scott
+function sortAtoZ(movie, column) {
+  let details = movie.sort((a, b) => a.title.localeCompare(b.title)).map(item => cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>A to Z</h2>${details}`;
 }
-function sortZtoA(media, column) {
-  let details = media.sort((a, b) => b.title.localeCompare(a.title)).map(item =>cardSyntax(item)
+function sortZtoA(movie, column) {
+  let details = movie.sort((a, b) => b.title.localeCompare(a.title)).map(item =>cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>Z to A</h2>${details}`;
 }
-function sortByPopularityDescending(media, column) {
-  let details = media.sort((a, b) => b.popularity - a.popularity).map(item => cardSyntax(item)
+function sortByPopularityDescending(movie, column) {
+  let details = movie.sort((a, b) => b.popularity - a.popularity).map(item => cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>Popularity: High to Low</h2>${details}`;
 }
-function sortByPopularityAscending(media, column) {
-  let details = media.sort((a, b) => a.popularity - b.popularity).map(item => cardSyntax(item)
+function sortByPopularityAscending(movie, column) {
+  let details = movie.sort((a, b) => a.popularity - b.popularity).map(item => cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>Popularity: Low to High</h2>${details}`;
 }
-function sortByReleaseDescending(media, column) {
-  let details = media.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).map(item => cardSyntax(item)
+function sortByReleaseDescending(movie, column) {
+  let details = movie.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).map(item => cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>New Releases</h2>${details}`;
 }
-function sortByReleaseAscending(media, column) {
-  let details = media.sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).map(item => cardSyntax(item)
+function sortByReleaseAscending(movie, column) {
+  let details = movie.sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).map(item => cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>Least Recent to Newest</h2>${details}`;
 }
-function sortByRatingDescending(media, column) {
-  let details = media.sort((a, b) => b.vote_average - a.vote_average).map(item => cardSyntax(item)
+function sortByRatingDescending(movie, column) {
+  let details = movie.sort((a, b) => b.vote_average - a.vote_average).map(item => cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>Ratings: Low to High</h2>${details}`;
 }
-function sortByRatingAscending(media, column) {
-  let details = media.sort((a, b) => a.vote_average - b.vote_average).map(item => cardSyntax(item)
+function sortByRatingAscending(movie, column) {
+  let details = movie.sort((a, b) => a.vote_average - b.vote_average).map(item => cardSyntax(item)
   ).join('');
   column.innerHTML = `<h2>Ratings: High to Low </h2>${details}`;
 }
-  //Search Movies
-  //API
+
+  // Search Movies
+  // API
   const API_MAIN =
     "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf48768ed55d725362b931";
 
@@ -90,6 +92,8 @@ function sortByRatingAscending(media, column) {
   const form = document.querySelector("#form");
   const search = document.querySelector("#search");
 
+
+  // There is code above that uses a similar fetch request. Can this code be reduced? - Scott
   function getMovies(url) {
     fetch(url)
       .then((res) => res.json())
@@ -113,7 +117,8 @@ function sortByRatingAscending(media, column) {
       getMovies(API_MAIN);
     }
   });
-///Raymond changed the DIV class to a class to allow each image to be clicked on for a details page.
+
+/// Changed the DIV class to 'a' class to allow each image to be clicked on for a details page. - Raymond
 function displayMovie(movies) {
   let details = movies.map((item) => {
     return ` 
@@ -123,6 +128,7 @@ function displayMovie(movies) {
       </a>`;
     }).join('');
     console.log(movies)
+    // These next 5 column lines might be able to be deleted. Worth looking into, but not a high priority. - Scott
     column1.innerHTML = details;
     column2.innerHTML = details;
     column3.innerHTML = details;
