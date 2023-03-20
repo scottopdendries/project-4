@@ -23,7 +23,7 @@ nav{
     display: flex;
 }
 
-.poster-container{
+.poster-container{ 
     width: 60%;
     display: flex;
     justify-content: center;
