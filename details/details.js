@@ -54,8 +54,3 @@ fetch(
       movieOverview.innerHTML = movieDetails;
 
     }
-
-
-
-
-    

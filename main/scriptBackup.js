@@ -1,3 +1,7 @@
+// This script is a temporary backup to ensure no code was lost during a merge.
+// - Scott
+// Dated Mar 19, 2023
+
 const api = "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf48768ed55d725362b931";
 const column1 = document.querySelector(".column-1");
 const column2 = document.querySelector(".column-2");
@@ -36,9 +40,8 @@ function cardSyntax(item) {
   `;
 }
 
-// sortAtoZ and sortZtoA can be updated to omit 'a' and 'the'.
-// ie, show 'The Whale' as 'W' in the alphabet instead of 'T'.
-// - Scott
+// Scott: Update sortAtoZ and sortZtoA to ignore 'a' and 'the'.
+// For example, show The Whale as W in the alphabet, and not T"
 function sortAtoZ(movie, column) {
   let details = movie.sort((a, b) => a.title.localeCompare(b.title)).map(item => cardSyntax(item)
   ).join('');
@@ -79,9 +82,8 @@ function sortByRatingAscending(movie, column) {
   ).join('');
   column.innerHTML = `<h2>Ratings: High to Low </h2>${details}`;
 }
-
-  // Search Movies
-  // API
+  //Search Movies
+  //API
   const API_MAIN =
     "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf48768ed55d725362b931";
 
@@ -93,7 +95,7 @@ function sortByRatingAscending(movie, column) {
   const search = document.querySelector("#search");
 
 
-  // There is code above that uses a similar fetch request. Can this code be reduced? - Scott
+  // There is previous code that uses a similar fetch request. Can this code be reduced?
   function getMovies(url) {
     fetch(url)
       .then((res) => res.json())
@@ -118,7 +120,7 @@ function sortByRatingAscending(movie, column) {
     }
   });
 
-/// Changed the DIV class to 'a' class to allow each image to be clicked on for a details page. - Raymond
+///Raymond changed the DIV class to a class to allow each image to be clicked on for a details page. - Raymond.
 function displayMovie(movies) {
   let details = movies.map((item) => {
     return ` 
@@ -128,7 +130,6 @@ function displayMovie(movies) {
       </a>`;
     }).join('');
     console.log(movies)
-    // These next 5 column lines might be able to be deleted. Worth looking into, but not a high priority. - Scott
     column1.innerHTML = details;
     column2.innerHTML = details;
     column3.innerHTML = details;
