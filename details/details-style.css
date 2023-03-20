@@ -21,14 +21,13 @@ nav{
 
 .container{
     display: flex;
-
 }
+
 .poster-container{
     width: 60%;
     display: flex;
     justify-content: center;
 }
-
 
 .backdrop-img{
     width: 100%;

@@ -20,6 +20,16 @@ fetch(
         const urlParams = new URLSearchParams(window.location.search);
         currentId = urlParams.get("id");
 
+        ///Raymond: backdrop image
+      let backDrop = movies.map((item) => {
+        if(currentId == item.id){
+      return`<div class="backdrop-container">
+              <img src="https://image.tmdb.org/t/p/original/${item.backdrop_path}" class="backdrop-img" alt="">
+            </div>`;
+            }
+    }).join('');
+    backdrop.innerHTML = backDrop;
+
   ///Raymond: takes the currently selected movie and loads the poster image
         let selectedMovie = movies.map((item) => {
             if(currentId == item.id){
@@ -42,16 +52,6 @@ fetch(
               }
       }).join('');
       movieOverview.innerHTML = movieDetails;
-
-///Raymond: backdrop image
-      let backDrop = movies.map((item) => {
-        if(currentId == item.id){
-      return`<div class="backdrop-container">
-              <img src="https://image.tmdb.org/t/p/original/${item.backdrop_path}" class="backdrop-img" alt="">
-            </div>`;
-            }
-    }).join('');
-    backdrop.innerHTML = backDrop;
 
     }
 
