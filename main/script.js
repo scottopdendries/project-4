@@ -8,7 +8,7 @@ const column5 = document.querySelector(".column-5");
 let column = "";
 column = column2;
 
-// API Fetch
+// API FETCH
 fetch(api)
     .then((response) => response.json())
     .then((data) => {
@@ -26,15 +26,19 @@ fetch(api)
     })
     .catch((err) => console.log(err));
 
-// Functions
+// CARD SYNTAX FUNCTION
 function cardSyntax(item) {
   return `
-  <div class="card">
-    <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-    <div class="rating">${item.vote_average}</div>
-  </div>
-  `;
-}
+    <div class="card">
+      <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
+      <div class="rating">${item.vote_average}</div>
+    </div>`;
+  }
+    
+    
+
+
+// FILTER FUNCTIONS
 
 // sortAtoZ and sortZtoA can be updated to omit 'a' and 'the'.
 // ie, show 'The Whale' as 'W' in the alphabet instead of 'T'.
@@ -80,45 +84,49 @@ function sortByRatingAscending(movie, column) {
   column.innerHTML = `<h2>Ratings: High to Low </h2>${details}`;
 }
 
-  // Search Movies
-  // API
-  const API_MAIN =
-    "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf48768ed55d725362b931";
-
-  const searchURL =
-    "https://api.themoviedb.org/3/search/movie?api_key=477f5f5debaf48768ed55d725362b931";
-
-  const container = document.querySelector(".container");
-  const form = document.querySelector("#form");
-  const search = document.querySelector("#search");
+// COLUMN TO GRID FUCNTION
+// The function to change column1 to a grid will go here.
+// - Scott
 
 
-  // There is code above that uses a similar fetch request. Can this code be reduced? - Scott
-  function getMovies(url) {
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        const movies = json;
-        displayMovie(movies.results);
+
+// SEARCH FUNCTION
+
+//Fabio, I deleted 'const API_MAIN', because it matched 'const api'. There were two cases below where 'API_MAIN' was used. Those have been changed to 'api'. - Scott
+
+const searchURL =
+  "https://api.themoviedb.org/3/search/movie?api_key=477f5f5debaf48768ed55d725362b931";
+
+const container = document.querySelector(".container");
+const form = document.querySelector("#form");
+const search = document.querySelector("#search");
+
+// There is code above that uses a similar fetch request. Can this code be reduced? - Scott
+function getMovies(url) {
+  fetch(url)
+    .then((res) => res.json())
+    .then((json) => {
+      const movies = json;
+      displayMovie(movies.results);
       })
       .catch((err) => console.log(err));
   }
 
-  getMovies(API_MAIN);
+getMovies(api);
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    const searchValue = search.value;
+  const searchValue = search.value;
 
-    if (searchValue) {
-      getMovies(searchURL +"&query="+ searchValue);
-    } else {
-      getMovies(API_MAIN);
-    }
-  });
+  if (searchValue) {
+    getMovies(searchURL +"&query="+ searchValue);
+  } else {
+    getMovies(api);
+  }
+});
 
-/// Changed the DIV class to 'a' class to allow each image to be clicked on for a details page. - Raymond
+/// Changed the 'div' class to 'a' class to allow each image to be clicked on for a details page. - Raymond
 function displayMovie(movies) {
   let details = movies.map((item) => {
     return ` 
