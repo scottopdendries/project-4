@@ -15,18 +15,18 @@ fetch(api)
       console.log(data);
 
       const movie = data.results;
-      sortAtoZ(movie, column);
+      sortAtoZ(movie, column5);
       sortZtoA(movie, column);
-      sortByPopularityDescending(movie, column1);
+      sortByPopularityDescending(movie, column2);
       sortByPopularityAscending(movie, column);
-      sortByReleaseDescending(movie, column);
+      sortByReleaseDescending(movie, column1);
       sortByReleaseAscending(movie, column);
-      sortByRatingDescending(movie, column);
-      sortByRatingAscending(movie, column);
+      sortByRatingDescending(movie, column3);
+      sortByRatingAscending(movie, column4);
     })
     .catch((err) => console.log(err));
 
-
+    
 
     // Drop-down menu - in progress
     const movieSortSelect = document.getElementById("movie-sort");
@@ -80,9 +80,8 @@ function cardSyntax(item) {
       <div class="rating">${item.vote_average}</div>
     </div>`;
   }
-    
-    
 
+    
 
 // FILTER FUNCTIONS
 
@@ -122,12 +121,12 @@ function sortByReleaseAscending(movie, column) {
 function sortByRatingDescending(movie, column) {
   let details = movie.sort((a, b) => b.vote_average - a.vote_average).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>Ratings: Low to High</h2>${details}`;
+  column.innerHTML = `<h2>Ratings: High to Low</h2>${details}`;
 }
 function sortByRatingAscending(movie, column) {
   let details = movie.sort((a, b) => a.vote_average - b.vote_average).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>Ratings: High to Low </h2>${details}`;
+  column.innerHTML = `<h2>Ratings: Low to High </h2>${details}`;
 }
 
 // COLUMN TO GRID FUCNTION

@@ -57,4 +57,5 @@ Do not try to create all tasks at once. Plan for the current week and adjust you
     [Numbers](http://numbersapi.com/#42)
     [Dog API](https://dog.ceo/dog-api/)
     [Pokémon API](https://pokeapi.co/docs/v2#pokemon)
-    [Now Playing Movies](https://www.themoviedb.org/movie/now-playing) -->
+    [Now Playing Movies](https://www.themoviedb.org/movie/now-playing) 
+    [World Restaurant API] (http://127.0.0.1:5504/Restaurants-World/index.html) -->
