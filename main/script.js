@@ -8,7 +8,7 @@ const column5 = document.querySelector(".column-5");
 let column = "";
 column = column;
 
-// API FETCH
+// API Fetch
 fetch(api)
     .then((response) => response.json())
     .then((data) => {
@@ -26,64 +26,14 @@ fetch(api)
     })
     .catch((err) => console.log(err));
 
-    
-
-    // Drop-down menu - in progress
-    const movieSortSelect = document.getElementById("movie-sort");
-
-    movieSortSelect.addEventListener("change", function(e){
-      const userChoice = e.target.value;
-      switch(userChoice) {
-        case "pop-desc":
-          alert("Popularity: High to Low");
-          break;
-        case "pop-asc":
-          alert("Popularity: Low to High");
-          break;
-        case "rate-desc":
-          alert("Ratings: High to Low");
-          break;
-        case "rate-asc":
-          alert("Ratings: Low to High");
-          break;
-        case "date-desc":
-          alert("Most Recent");
-          break;
-        case "date-asc":
-          alert("Least Recent");
-          break;
-        case "AtoZ":
-          alert("A to Z");
-          break;
-        case "ZtoA":
-          alert("Z to A");
-          break;
-      }
-    } )
-    // Value references (from HTML):
-    // <option value="pop-desc">Popularity: High to Low</option>
-    // <option value="pop-asc">Popularity: Low to High</option>
-    // <option value="rat-desc">Ratings: High to Low</option>
-    // <option value="rat-asc">Ratings: Low to High</option>
-    // <option value="date-desc">Most Recent</option>
-    // <option value="date-asc">Least Recent</option>
-    // <option value="AtoZ">Alphabetical: A to Z</option>
-    // <option value="ZtoA">Alphabetical: Z to A</option>
-
-
-
-// CARD SYNTAX FUNCTION
+// Functions
 function cardSyntax(item) {
-  return `
-    <div class="card">
-      <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-      <div class="rating">${item.vote_average}</div>
-    </div>`;
+    return ` 
+      <a class="card" href="../details/details.html?id=${item.id}">
+        <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
+        <div class="rating">${item.vote_average}</div>
+      </a>`;
   }
-
-    
-
-// FILTER FUNCTIONS
 
 // sortAtoZ and sortZtoA can be updated to omit 'a' and 'the'.
 // ie, show 'The Whale' as 'W' in the alphabet instead of 'T'.
@@ -121,71 +71,49 @@ function sortByReleaseAscending(movie, column) {
 function sortByRatingDescending(movie, column) {
   let details = movie.sort((a, b) => b.vote_average - a.vote_average).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>Ratings: High to Low</h2>${details}`;
+  column.innerHTML = `<h2>Ratings: Low to High</h2>${details}`;
 }
 function sortByRatingAscending(movie, column) {
   let details = movie.sort((a, b) => a.vote_average - b.vote_average).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>Ratings: Low to High </h2>${details}`;
+  column.innerHTML = `<h2>Ratings: High to Low </h2>${details}`;
 }
 
-// COLUMN TO GRID FUCNTION
-// The function to change column1 to a grid will go here.
-// - Scott
+  // Search Movies
+  // API
+  const API_MAIN =
+    "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf48768ed55d725362b931";
+
+  const searchURL =
+    "https://api.themoviedb.org/3/search/movie?api_key=477f5f5debaf48768ed55d725362b931";
+
+  const container = document.querySelector(".container");
+  const form = document.querySelector("#form");
+  const search = document.querySelector("#search");
 
 
-
-// SEARCH FUNCTION
-
-//Fabio, I deleted 'const API_MAIN', because it matched 'const api'. There were two cases below where 'API_MAIN' was used. Those have been changed to 'api'. - Scott
-
-const searchURL =
-  "https://api.themoviedb.org/3/search/movie?api_key=477f5f5debaf48768ed55d725362b931";
-
-const container = document.querySelector(".container");
-const form = document.querySelector("#form");
-const search = document.querySelector("#search");
-
-// There is code above that uses a similar fetch request. Can this code be reduced? - Scott
-function getMovies(url) {
-  fetch(url)
-    .then((res) => res.json())
-    .then((json) => {
-      const movies = json;
-      displayMovie(movies.results);
+  // There is code above that uses a similar fetch request. Can this code be reduced? - Scott
+  function getMovies(url) {
+    fetch(url)
+      .then((res) => res.json())
+      .then((json) => {
+        const movies = json;
+        displayMovie(movies.results);
       })
       .catch((err) => console.log(err));
   }
 
-getMovies(api);
+  getMovies(API_MAIN);
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  const searchValue = search.value;
+    const searchValue = search.value;
 
-  if (searchValue) {
-    getMovies(searchURL +"&query="+ searchValue);
-  } else {
-    getMovies(api);
-  }
-});
-
-/// Changed the 'div' class to 'a' class to allow each image to be clicked on for a details page. - Raymond
-function displayMovie(movies) {
-  let details = movies.map((item) => {
-    return ` 
-      <a class="card" href="../details/details.html?id=${item.id}">
-        <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-        <div class="rating">${item.vote_average}</div>
-      </a>`;
-    }).join('');
-    console.log(movies)
-    // These next 5 column lines might be able to be deleted. Worth looking into, but not a high priority. - Scott
-    // column1.innerHTML = details;
-    // column2.innerHTML = details;
-    // column3.innerHTML = details;
-    // column4.innerHTML = details;
-    // column5.innerHTML = details;
-  }
+    if (searchValue) {
+      getMovies(searchURL +"&query="+ searchValue);
+    } else {
+      getMovies(API_MAIN);
+    }
+  });
 
