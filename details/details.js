@@ -9,8 +9,7 @@ fetch(
     .then((res) => res.json())
     .then((json) => {
         const movies = json;
-      displayMovie(movies.results);
-      
+      displayMovie(movies.results); 
     })
     .catch((err) => console.log(err));
   
@@ -54,3 +53,7 @@ fetch(
       movieOverview.innerHTML = movieDetails;
 
     }
+
+   
+
+    

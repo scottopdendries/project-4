@@ -6,7 +6,7 @@ const column4 = document.querySelector(".column-4");
 const column5 = document.querySelector(".column-5");
 
 let column = "";
-column = column2;
+column = column;
 
 // API Fetch
 fetch(api)
@@ -15,26 +15,25 @@ fetch(api)
       console.log(data);
 
       const movie = data.results;
-      sortAtoZ(movie, column);
+      sortAtoZ(movie, column5);
       sortZtoA(movie, column);
-      sortByPopularityDescending(movie, column);
+      sortByPopularityDescending(movie, column2);
       sortByPopularityAscending(movie, column);
-      sortByReleaseDescending(movie, column);
+      sortByReleaseDescending(movie, column1);
       sortByReleaseAscending(movie, column);
-      sortByRatingDescending(movie, column);
-      sortByRatingAscending(movie, column);
+      sortByRatingDescending(movie, column3);
+      sortByRatingAscending(movie, column4);
     })
     .catch((err) => console.log(err));
 
 // Functions
 function cardSyntax(item) {
-  return `
-  <div class="card">
-    <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-    <div class="rating">${item.vote_average}</div>
-  </div>
-  `;
-}
+    return ` 
+      <a class="card" href="../details/details.html?id=${item.id}">
+        <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
+        <div class="rating">${item.vote_average}</div>
+      </a>`;
+  }
 
 // sortAtoZ and sortZtoA can be updated to omit 'a' and 'the'.
 // ie, show 'The Whale' as 'W' in the alphabet instead of 'T'.
@@ -117,22 +116,4 @@ function sortByRatingAscending(movie, column) {
       getMovies(API_MAIN);
     }
   });
-
-/// Changed the DIV class to 'a' class to allow each image to be clicked on for a details page. - Raymond
-function displayMovie(movies) {
-  let details = movies.map((item) => {
-    return ` 
-      <a class="card" href="../details/details.html?id=${item.id}">
-        <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-        <div class="rating">${item.vote_average}</div>
-      </a>`;
-    }).join('');
-    console.log(movies)
-    // These next 5 column lines might be able to be deleted. Worth looking into, but not a high priority. - Scott
-    column1.innerHTML = details;
-    column2.innerHTML = details;
-    column3.innerHTML = details;
-    column4.innerHTML = details;
-    column5.innerHTML = details;
-  }
 
