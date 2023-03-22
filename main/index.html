@@ -32,31 +32,17 @@
       
 
       
-      <!-- Drop-down Menu - in progress -->
-      <select id="movie-sort">
-        <option value="pop-desc">Popularity: High to Low</option>
-        <option value="pop-asc">Popularity: Low to High</option>
-        <option value="rate-desc">Ratings: High to Low</option>
-        <option value="rate-asc">Ratings: Low to High</option>
-        <option value="date-desc">Most Recent</option>
-        <option value="date-asc">Least Recent</option>
-        <option value="AtoZ">Alphabetical: A to Z</option>
-        <option value="ZtoA">Alphabetical: Z to A</option>
-      </select>
-      
-      <!-- Function references:
-            sortAtoZ(movie, column);
-            sortZtoA(movie, column);
-            sortByPopularityDescending(movie, column1);
-            sortByPopularityAscending(movie, column);
-            sortByReleaseDescending(movie, column);
-            sortByReleaseAscending(movie, column);
-            sortByRatingDescending(movie, column);
-            sortByRatingAscending(movie, column); -->
-
-
-
-      <button>Sort/Filter <i class="fa-solid fa-angle-right"></i></button>
+      <div> <!--This div is needed for dropdown to show under sort/filter--> 
+        <button id="sort-filter">Sort/Filter <i class="fa-solid fa-angle-right" id="arrow"></i></button>
+        <div class="no-content">
+          <button>Most Popular</button>
+          <button>Least Popular</button>
+          <button>Most Recent</button>
+          <button>Least Recent</button>
+          <button>A to Z</button>
+          <button>Z to A</button>
+        </div>
+    </div>
     </div>
     <i class="fa-solid fa-bars" id="hamburger-menu"></i>
   </nav>
@@ -64,10 +50,10 @@
   <main>
     <div class="container">
       <div class="column-1"></div>
-      <div class="column-2"></div>
+      <!-- <div class="column-2"></div>
       <div class="column-3"></div>
       <div class="column-4"></div>
-      <div class="column-5"></div>
+      <div class="column-5"></div> -->
     </div>
   </main>
 
