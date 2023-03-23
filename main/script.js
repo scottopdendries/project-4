@@ -2,17 +2,10 @@ const api = "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf
 const searchURL =
   "https://api.themoviedb.org/3/search/movie?api_key=477f5f5debaf48768ed55d725362b931";
 
-const column1 = document.querySelector(".column-1");
-// const column2 = document.querySelector(".column-2");
-// const column3 = document.querySelector(".column-3");
-// const column4 = document.querySelector(".column-4");
-// const column5 = document.querySelector(".column-5");
-
+const title = document.querySelector(".title");
 const container = document.querySelector(".container");
 const form = document.querySelector("#form");
 const search = document.querySelector("#search");
-
-let column = "";
 
 // API FETCH
 fetch(api)
@@ -20,16 +13,11 @@ fetch(api)
     .then((data) => {
       console.log(data);
       
-      // Are column parameters needed anymore? - Scott
       const movie = data.results;
-      sortAtoZ(movie, column);
-      sortZtoA(movie, column);
-      sortByPopularityDescending(movie, column);
-      sortByPopularityAscending(movie, column);
-      sortByReleaseDescending(movie, column1);
-      sortByReleaseAscending(movie, column);
-      sortByRatingDescending(movie, column);
-      sortByRatingAscending(movie, column);
+      sortAtoZ(movie);
+      sortByPopularity(movie);
+      sortByReleaseDate(movie);
+      sortByRating(movie);
     })
     .catch((err) => console.log(err));
 
@@ -61,54 +49,39 @@ function cardSyntax(item) {
 
 // FILTER FUNCTIONS
 
-// sortAtoZ and sortZtoA can be updated to omit 'a' and 'the'.
+// sortAtoZ can be updated to omit 'A' and 'The'.
 // ie, show 'The Whale' as 'W' in the alphabet instead of 'T'.
 // - Scott
-function sortAtoZ(movie, column) {
+function sortAtoZ(movie) {
   let details = movie.sort((a, b) => a.title.localeCompare(b.title)).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>A to Z</h2>${details}`;
+  title.innerHTML = `<h2>A to Z</h2>`;
+  container.innerHTML = details;
 }
-function sortZtoA(movie, column) {
-  let details = movie.sort((a, b) => b.title.localeCompare(a.title)).map(item =>cardSyntax(item)
-  ).join('');
-  column.innerHTML = `<h2>Z to A</h2>${details}`;
-}
-function sortByPopularityDescending(movie, column) {
+function sortByPopularity(movie) {
   let details = movie.sort((a, b) => b.popularity - a.popularity).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>Popularity: High to Low</h2>${details}`;
+  title.innerHTML = `<h2>Most Popular</h2>`;
+  container.innerHTML = details;
 }
-function sortByPopularityAscending(movie, column) {
-  let details = movie.sort((a, b) => a.popularity - b.popularity).map(item => cardSyntax(item)
-  ).join('');
-  column.innerHTML = `<h2>Popularity: Low to High</h2>${details}`;
-}
-function sortByReleaseDescending(movie, column) {
+function sortByReleaseDate(movie) {
   let details = movie.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>New Releases</h2>${details}`;
+  title.innerHTML = `<h2>New Releases</h2>`;
+  container.innerHTML = details;
 }
-function sortByReleaseAscending(movie, column) {
-  let details = movie.sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).map(item => cardSyntax(item)
-  ).join('');
-  column.innerHTML = `<h2>Least Recent to Newest</h2>${details}`;
-}
-function sortByRatingDescending(movie, column) {
+function sortByRating(movie) {
   let details = movie.sort((a, b) => b.vote_average - a.vote_average).map(item => cardSyntax(item)
   ).join('');
-  column.innerHTML = `<h2>Ratings: High to Low</h2>${details}`;
+  title.innerHTML = `<h2>Best Rated</h2>`;
+  container.innerHTML = details;
 }
-function sortByRatingAscending(movie, column) {
-  let details = movie.sort((a, b) => a.vote_average - b.vote_average).map(item => cardSyntax(item)
-  ).join('');
-  column.innerHTML = `<h2>Ratings: Low to High </h2>${details}`;
-}
+
 
 
 // SEARCH FUNCTION
 
-// There is code above that uses a similar fetch request. Can this code be reduced? - Scott
+// Fabio, there is code above that uses a similar fetch request. Can this code be reduced? - Scott
 function getMovies(url) {
   fetch(url)
     .then((res) => res.json())

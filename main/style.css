@@ -125,33 +125,25 @@ nav i {
 /*Code for dropdown menu ENDS HERE*/
 
 .container{
-  /* display: flex; */
-  display: flex;
-  width: 100%
-  /* flex-wrap: wrap; */
-}
-
-.column-1{
   display: grid;
-  }
-/* .column-2, .column-3, .column-4, .column-5{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 15%;
-} */
-
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 20px;
+}
 .card{
-  position: relative;
+  position: relative; 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 25%;
+  width: 100%;
   padding: 10px;
 }
 .card img {
   border-radius: 25px;
+  width: 100%;
+  height: auto;
 }
+
 
 .rating {
   position: absolute;
