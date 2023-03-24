@@ -6,20 +6,15 @@
     --green: #1CBD19;
   }
 
-
-nav{
-    background-color: var(--black);
-    color: var(--red);
-}
-
 .back-arrow{
-    font-size: 20px;
+    font-size: 30px;
     border: transparent;
     color: var(--red);
     text-decoration: none;
+    position: relative;
 }
 
-.container{
+.details-images-container{
     display: flex;
 }
 
@@ -50,7 +45,7 @@ nav{
 
 .movie-info h1{
     margin-top: 90px;
-    color: var(--orange);
+    color: brown;
     font-weight: 700;
     font-size: 41px;
     position: relative;

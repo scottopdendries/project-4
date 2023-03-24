@@ -10,6 +10,7 @@ fetch(
     .then((json) => {
         const movies = json;
       displayMovie(movies.results); 
+      console.log(movies.results);
     })
     .catch((err) => console.log(err));
   
