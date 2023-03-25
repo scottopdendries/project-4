@@ -59,7 +59,7 @@ function cardSyntax(movies) {
     return` 
     <a class="card" href="../details/details.html?id=${item.id}">
     <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-    <div class="rating">${item.vote_average}</div>
+    <div class="rating">${item.vote_average.toFixed(1)}</div>
   </a>`
   }).join('');
   title.innerHTML = "Now Playing"
