@@ -45,9 +45,12 @@ nav button {
   color: var(--black);
 }
 
-.title h2{
+.title{
   background-color: var(--grey);
   color: var(--black);
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
 }
 
 /*The two lines of code above allows to change the button AND the i element at the same time when hovering*/

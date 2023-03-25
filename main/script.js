@@ -115,7 +115,6 @@ upComingBtn.addEventListener('click', ()=> {
 
 
 
-
 // FILTER FUNCTIONS
 
 // sortAtoZ can be updated to omit 'A' and 'The'.
@@ -153,15 +152,15 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const searchValue = search.value;
-
   if (searchValue) {
     getMovies(searchURL +"&query="+ searchValue);
-    search = '';
+    // search = ''; commented out this code, as it was giving and error with resetting the search after submit. seems to work now --Ray
   } else {
     getMovies(api_base + nowPlaying + api_key);
   }
+//Added the code below to reset the search value --Ray
+  document.querySelector("#search").value = "";
 });
-
 
 // Observation:
 // -we are missing A to Z filter

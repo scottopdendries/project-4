@@ -2,6 +2,7 @@
 const posterMovies = document.querySelector(".poster-container");
 const movieOverview = document.querySelector(".details-container");
 const backdrop = document.querySelector(".backdrop");
+const searchApi = "https://api.themoviedb.org/3/search/movie?api_key=477f5f5debaf48768ed55d725362b931";
 
 fetch(
     "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf48768ed55d725362b931"
@@ -52,7 +53,6 @@ fetch(
               }
       }).join('');
       movieOverview.innerHTML = movieDetails;
-
     }
 
    
