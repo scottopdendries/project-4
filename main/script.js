@@ -58,9 +58,9 @@ function cardSyntax(movies) {
   let details = movies.map((item) => {
     return` 
     <a class="card" href="../details/details.html?id=${item.id}">
-    <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
-    <div class="rating">${item.vote_average}</div>
-  </a>`
+      <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" alt="">
+      <div class="rating">${item.vote_average.toFixed(1)}</div>
+    </a>`
   }).join('');
   title.innerHTML = "Now Playing"
   container.innerHTML = details;
@@ -154,6 +154,7 @@ form.addEventListener("submit", (e) => {
   const searchValue = search.value;
   if (searchValue) {
     getMovies(searchURL +"&query="+ searchValue);
+
     // search = ''; commented out this code, as it was giving and error with resetting the search after submit. seems to work now --Ray
   } else {
     getMovies(api_base + nowPlaying + api_key);
