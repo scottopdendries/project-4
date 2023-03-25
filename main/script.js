@@ -106,3 +106,18 @@ form.addEventListener("submit", (e) => {
     getMovies(api);
   }
 });
+
+//Mobile Menu
+
+const hamburgerMenu = document.querySelector("#hamburger-menu");
+const header = document.querySelector("header");
+const navbar = document.querySelector("nav");
+
+const openMenu = () => {
+  header.classList.toggle("mobile-header");
+  navbar.classList.toggle("mobile-menu");
+  navbar.classList.toggle("browser-menu");
+
+};
+
+hamburgerMenu.onclick = openMenu;
