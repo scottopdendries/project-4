@@ -23,6 +23,10 @@ header {
   height: 100px;
   background-color: var(--black);
   padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: solid var(--red);
 }
 
 .mobile-header {
@@ -82,11 +86,12 @@ header img {
 }
 
 nav input {
-  width: 170px;
+  width: 150px;
+  height: 40px;
   padding: 10px;
   background-color: transparent;
   border: 1px solid var(--red);
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
   outline: none;
 }
 
@@ -132,6 +137,18 @@ nav i {
 }
 
 /*Code for dropdown menu ENDS HERE*/
+
+.magnifying-glass {
+  border: 1px solid var(--red);
+  height: 40px;
+  width: 30px;
+  border-radius: 0 20px 20px 0;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
 
 .container{
   display: grid;

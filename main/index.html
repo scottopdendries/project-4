@@ -16,17 +16,18 @@
 </head>
 <body>
   <header>
-      <img src="../images/logo.png" alt="logo">
+      <a href="index.html"><img src="../images/logo.png" alt="logo"></a>
       <nav class="browser-menu">
         <form id="form">
           <input type="text" placeholder="Search..." id="search">
+          <button class="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div> <!--This div is needed for dropdown to show under sort/filter--> 
           <button id="sort-filter">Sort/Filter <i class="fa-solid fa-angle-right" id="arrow"></i></button>
           <div class="no-content">
-            <button>Most Popular</button>
-            <button>Best Rated</button>
-            <button>Most Recent</button>
+            <button id="popular">Most Popular</button>
+            <button id="topRated">Best Rated</button>
+            <button id="upcoming">Most Recent</button>
             <button>A to Z</button>
           </div>
         </div>
@@ -40,7 +41,9 @@
   </main>
 
   <footer>
-    Title
+    <p>
+    <div class="mimo">mimo</div>flix
+    </p>
   </footer>
 
   <script src="./script.js"></script>

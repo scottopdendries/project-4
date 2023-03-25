@@ -19,6 +19,7 @@ const topRatedBtn = document.querySelector('#topRated')
 const upComingBtn = document.querySelector('#upcoming')
 const sortAtoZ = document.querySelector('#sortAtoZ')
 
+const magnifyingGlass = document.querySelector(".magnifying-glass");
 
 // API FETCH
 function getMovies(api){
@@ -150,6 +151,20 @@ upComingBtn.addEventListener('click', ()=> {
 
 // SEARCH 
 form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const searchValue = search.value;
+
+  if (searchValue) {
+    getMovies(searchURL +"&query="+ searchValue);
+    search = '';
+  } else {
+    getMovies(api_base + nowPlaying + api_key);
+  }
+});
+
+//The magnifying glass has the same code as the search code above, this time, when clicked, it will look up the search 
+magnifyingGlass.addEventListener("click", (e) => {
   e.preventDefault();
 
   const searchValue = search.value;
