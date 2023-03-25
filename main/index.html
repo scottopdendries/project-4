@@ -15,35 +15,24 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-  <nav>
-    <img src="/images/logo.png" alt="logo" id="mobile-logo">
-    <div class="nav-content-left">
+  <header>
       <img src="../images/logo.png" alt="logo">
-      <!-- <button>Movies</button>
-      <button>TV Shows</button>
-      <button>All</button> -->
-    </div>
-
-    <div class="nav-content-right">
-      <form id="form">
-        <input type="text" placeholder="Search..." id="search">
-      </form>
-      
-
-      
-      <div> <!--This div is needed for dropdown to show under sort/filter--> 
-        <button id="sort-filter">Sort/Filter <i class="fa-solid fa-angle-right" id="arrow"></i></button>
-        <div class="no-content">
-          <button id="popular">Most Popular</button>
-          <button id="topRated">Best Rated</button>
-          <button id="upcoming">Upcoming</button>
-          <button id="sortAtoZ">A to Z</button>
+      <nav class="browser-menu">
+        <form id="form">
+          <input type="text" placeholder="Search..." id="search">
+        </form>
+        <div> <!--This div is needed for dropdown to show under sort/filter--> 
+          <button id="sort-filter">Sort/Filter <i class="fa-solid fa-angle-right" id="arrow"></i></button>
+          <div class="no-content">
+            <button>Most Popular</button>
+            <button>Best Rated</button>
+            <button>Most Recent</button>
+            <button>A to Z</button>
+          </div>
         </div>
-    </div>
-    </div>
+    </nav>
     <i class="fa-solid fa-bars" id="hamburger-menu"></i>
-  </nav>
+  </header>
 
   <main>
     <div class="title"></div>

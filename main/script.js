@@ -163,7 +163,18 @@ form.addEventListener("submit", (e) => {
 });
 
 
-// Observation:
-// -we are missing A to Z filter
-// -Title inside the grid is too small, maybe we can position it in the middle
-// -- After you type anything in the search, We have to remove the name from the input
+//Mobile Menu
+
+const hamburgerMenu = document.querySelector("#hamburger-menu");
+const header = document.querySelector("header");
+const navbar = document.querySelector("nav");
+
+const openMenu = () => {
+  header.classList.toggle("mobile-header");
+  navbar.classList.toggle("mobile-menu");
+  navbar.classList.toggle("browser-menu");
+
+};
+
+hamburgerMenu.onclick = openMenu;
+
