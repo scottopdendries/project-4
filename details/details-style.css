@@ -81,5 +81,9 @@
     color: var(--black);
     margin-top: 50px;
     font-size: 22px;
+    position: relative;
 }
 
+footer {
+    position: fixed;
+}

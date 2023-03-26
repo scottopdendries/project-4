@@ -199,7 +199,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--black);
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   height: 100px;
   width: 100%;
