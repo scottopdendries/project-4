@@ -171,10 +171,10 @@ magnifyingGlass.addEventListener("click", (e) => {
 
   if (searchValue) {
     getMovies(searchURL +"&query="+ searchValue);
-    search = '';
   } else {
     getMovies(api_base + nowPlaying + api_key);
   }
+  document.querySelector("#search").value="";
 });
 
 
