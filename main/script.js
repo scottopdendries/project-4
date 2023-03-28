@@ -175,6 +175,9 @@ magnifyingGlass.addEventListener("click", (e) => {
     getMovies(api_base + nowPlaying + api_key);
   }
   document.querySelector("#search").value="";
+  // title.innerHTML = searchValue;
+
+  /*Trying to get the search value to mimic the input value, it briefly shows however the page refreshes and the text disappears */
 });
 
 
@@ -188,7 +191,8 @@ const openMenu = () => {
   header.classList.toggle("mobile-header");
   navbar.classList.toggle("mobile-menu");
   navbar.classList.toggle("browser-menu");
-
+  sort.classList.toggle("mobile-filter");
+  sort.classList.toggle("browser-filter");
 };
 
 hamburgerMenu.onclick = openMenu;
