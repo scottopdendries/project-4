@@ -55,6 +55,8 @@ function filter() {
 
 
 
+
+
 // CARD SYNTAX FUNCTION
 function cardSyntax(movies) {
   let details = movies.map((item) => {
@@ -130,39 +132,6 @@ trend.addEventListener('click', ()=> {
   trending(api_base + trendingApi + api_key)
 })
 
-
-
-
-
-// FILTER FUNCTIONS
-
-// sortAtoZ can be updated to omit 'A' and 'The'.
-// ie, show 'The Whale' as 'W' in the alphabet instead of 'T'.
-// - Scott
-// function sortAtoZ(movie) {
-//   let details = movie.sort((a, b) => a.title.localeCompare(b.title)).map(item => cardSyntax(item)
-//   ).join('');
-//   title.innerHTML = `<h2>A to Z</h2>`;
-//   container.innerHTML = details;
-// }
-// function sortByPopularity(movie) {
-//   let details = movie.sort((a, b) => b.popularity - a.popularity).map(item => cardSyntax(item)
-//   ).join('');
-//   title.innerHTML = `<h2>Most Popular</h2>`;
-//   container.innerHTML = details;
-// }
-// function sortByReleaseDate(movie) {
-//   let details = movie.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).map(item => cardSyntax(item)
-//   ).join('');
-//   title.innerHTML = `<h2>New Releases</h2>`;
-//   container.innerHTML = details;
-// }
-// function sortByRating(movie) {
-//   let details = movie.sort((a, b) => b.vote_average - a.vote_average).map(item => cardSyntax(item)
-//   ).join('');
-//   title.innerHTML = `<h2>Best Rated</h2>`;
-//   container.innerHTML = details;
-// }
 
 
 
