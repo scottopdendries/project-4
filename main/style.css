@@ -164,6 +164,7 @@ form {
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 20px;
   background-color: var(--grey);
+  padding: 0 40px;
 }
 .card{
   position: relative; 
@@ -178,6 +179,7 @@ form {
   width: 100%;
   height: auto;
 }
+
 
 
 .rating {
@@ -207,6 +209,7 @@ footer {
 }
 
 
+/* Tablet */
 @media (max-width: 768px) {
 
   /*Hamburger menu for mobile screen STARTS HERE*/
@@ -223,4 +226,21 @@ footer {
 
   /*Hamburger menu for mobile screen ENDS HERE*/
 
+  .container{
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 10px;
+    padding: 0 20px;
+  }
+
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  .container{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-gap: 5px;
+    padding: 0 10px;
+  }
 }
