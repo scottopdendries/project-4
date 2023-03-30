@@ -43,11 +43,11 @@ nav button {
   border: none;
   background-color: var(--black);
   cursor: pointer;
-  padding: 0 5px; /*added padding to look better for hover*/
+  padding: 10px 15px; /*added padding to look better for hover*/
 }
 
 .browser-menu {
-  width: 300px;
+  width: 360px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -124,16 +124,17 @@ nav i {
   position: absolute;
   z-index: 1;
   background-color: var(--black);
-  /* min-width: 120px; */
   transition-delay: 5s;
 }
 
 .dropdown-content button {
   color: var(--grey);
-  padding: 12px 16px;
+  /* padding: 12px 5px; */
+  padding: 12px 0 12px 15px;
   text-decoration: none;
   display: block;
-  width: 134px;
+  width: 122px;
+  text-align: start;
 }
 
 /*Code for dropdown menu ENDS HERE*/
@@ -143,6 +144,7 @@ nav i {
   height: 40px;
   width: 30px;
   border-radius: 0 20px 20px 0;
+  padding-right: 30px;
 }
 
 .title{
@@ -173,7 +175,13 @@ form {
   justify-content: space-between;
   width: 100%;
   padding: 10px;
+  transition: 0.5s;
 }
+
+.card:hover{
+  transform: scale(1.1);
+}
+
 .card img {
   border-radius: 25px;
   width: 100%;
@@ -201,18 +209,19 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--black);
-  /* position: fixed; */
   bottom: 0;
   height: 100px;
   width: 100%;
   border-top: solid var(--red);
 }
 
+/*The "mobile-filter" code is used when using mobile screen to access the sort/filter icon*/
+.mobile-filter {
+  display: block;
+}
 
 /* Tablet */
 @media (max-width: 768px) {
-
-  /*Hamburger menu for mobile screen STARTS HERE*/
 
   #hamburger-menu {
     display: block;
@@ -220,10 +229,9 @@ footer {
     cursor: pointer;
   }
 
-  .browser-menu {
+  .browser-filter {
     display: none;
   }
-
   /*Hamburger menu for mobile screen ENDS HERE*/
 
   .container{

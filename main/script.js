@@ -5,6 +5,7 @@ const nowPlaying = "/movie/now_playing?"
 const bestRated = "/movie/top_rated?"
 const popular = "/movie/popular?"
 const upcoming = "/movie/upcoming?"
+const trendingApi = "/trending/all/day?"
 
 const searchURL ="https://api.themoviedb.org/3/search/movie?api_key=477f5f5debaf48768ed55d725362b931";
 
@@ -17,7 +18,7 @@ const search = document.querySelector("#search");
 const popularBtn = document.querySelector('#popular')
 const topRatedBtn = document.querySelector('#topRated')
 const upComingBtn = document.querySelector('#upcoming')
-const sortAtoZ = document.querySelector('#sortAtoZ')
+const trend = document.querySelector('#trend')
 
 const magnifyingGlass = document.querySelector(".magnifying-glass");
 
@@ -116,6 +117,22 @@ upComingBtn.addEventListener('click', ()=> {
   upComing(api_base + upcoming + api_key)
 })
 
+//filter to trending- Fabio
+function trending(trend){
+  fetch(trend)
+     .then((response) => response.json())
+     .then((data) => {
+       const movie = data.results;
+       cardSyntax(movie)
+       title.innerHTML = 'Trending'
+     })
+     .catch((err) => console.log(err));
+   }  
+trend.addEventListener('click', ()=> {
+  trending(api_base + trendingApi + api_key)
+})
+
+
 
 
 // SEARCH 
@@ -126,25 +143,32 @@ form.addEventListener("submit", (e) => {
 
   if (searchValue) {
     getMovies(searchURL +"&query="+ searchValue);
-    search = '';
   } else {
     getMovies(api_base + nowPlaying + api_key);
   }
+    document.querySelector("#search").value="";
 });
+
+//As magnifying glass is inside of the form tag we dont
+// need to make another addEventListener. FABIO
 
 //The magnifying glass has the same code as the search code above, this time, when clicked, it will look up the search 
-magnifyingGlass.addEventListener("click", (e) => {
-  e.preventDefault();
+// magnifyingGlass.addEventListener("click", (e) => {
+//   e.preventDefault();
 
-  const searchValue = search.value;
+//   const searchValue = search.value;
 
-  if (searchValue) {
-    getMovies(searchURL +"&query="+ searchValue);
-  } else {
-    getMovies(api_base + nowPlaying + api_key);
-  }
-  document.querySelector("#search").value="";
-});
+//   if (searchValue) {
+//     getMovies(searchURL +"&query="+ searchValue);
+//   } else {
+//     getMovies(api_base + nowPlaying + api_key);
+//   }
+//   document.querySelector("#search").value="";
+
+  // title.innerHTML = searchValue;
+
+  /*Trying to get the search value to mimic the input value, it briefly shows however the page refreshes and the text disappears */
+// });
 
 
 //Mobile Menu
@@ -157,7 +181,8 @@ const openMenu = () => {
   header.classList.toggle("mobile-header");
   navbar.classList.toggle("mobile-menu");
   navbar.classList.toggle("browser-menu");
-
+  sort.classList.toggle("mobile-filter");
+  sort.classList.toggle("browser-filter");
 };
 
 hamburgerMenu.onclick = openMenu;
