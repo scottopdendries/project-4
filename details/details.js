@@ -3,6 +3,9 @@ const posterMovies = document.querySelector(".poster-container");
 const movieOverview = document.querySelector(".details-container");
 const backdrop = document.querySelector(".backdrop");
 
+//trailer
+const trailerContainer = document.querySelector(".trailerContainer");
+
 fetch(
     "https://api.themoviedb.org/3/movie/now_playing?api_key=477f5f5debaf48768ed55d725362b931"
   )
@@ -61,6 +64,60 @@ fetch(
       movieOverview.innerHTML = movieDetails;
 
     }
+
+
+    
+//trailer
+let currentId;
+const urlParams = new URLSearchParams(window.location.search);
+currentId = urlParams.get("id");
+
+fetch(
+  `https://api.themoviedb.org/3//movie/${currentId}/videos?api_key=477f5f5debaf48768ed55d725362b931`
+)
+  .then((res) => res.json())
+  .then((json) => {
+    const trailer = json.results;
+    console.log(trailer);
+    displayTrailer(trailer);
+    toggleBtn()
+  })
+  .catch((err) => console.log(err));
+
+function displayTrailer(trailer) {
+  let details = trailer
+    .map((item) => {
+      return ` 
+        <button id="openBtn" class="open" >WATCH TRAILER</button>
+        <div id="fade" class="hide"></div>
+         <div id="trailer" class="hide">
+         <iframe 
+           width="750px"
+           height="500"
+           src="https://www.youtube.com/embed/${item.key}"
+           alt=""
+         ></iframe>
+         <button id="closeBtn" class="close">Close</button>
+       </div>`;
+    })
+    .splice(0, 1);
+
+     trailerContainer.innerHTML = details;
+}
+
+function toggleBtn(){
+  const openBtn = document.querySelector('#openBtn')
+  const closeBtn = document.querySelector('#closeBtn')
+  const fade = document.querySelector("#fade");
+   const trailer1 = document.querySelector("#trailer");
+
+   [openBtn, closeBtn].forEach((el)=> {
+     el.addEventListener("click", () => {
+     fade.classList.toggle("hide");
+     trailer1.classList.toggle("hide");
+   });     
+   })
+}
 
    
 
