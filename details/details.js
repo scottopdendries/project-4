@@ -67,25 +67,30 @@ fetch(
 
 
     
-//trailer
+//trailer-----
 let currentId;
 const urlParams = new URLSearchParams(window.location.search);
 currentId = urlParams.get("id");
 
 fetch(
-  `https://api.themoviedb.org/3//movie/${currentId}/videos?api_key=477f5f5debaf48768ed55d725362b931`
+  `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=477f5f5debaf48768ed55d725362b931`
 )
   .then((res) => res.json())
   .then((json) => {
     const trailer = json.results;
-    console.log(trailer);
+    // console.log(trailer);
     displayTrailer(trailer);
     toggleBtn()
   })
   .catch((err) => console.log(err));
 
 function displayTrailer(trailer) {
-  let details = trailer
+  const trailerVideo = trailer.filter((movie)=> {
+    return movie.name === "Official Trailer"
+  })
+
+  if(trailerVideo.length){
+    let details = trailer
     .map((item) => {
       return ` 
         <button id="openBtn" class="open" >WATCH TRAILER</button>
@@ -94,15 +99,17 @@ function displayTrailer(trailer) {
          <iframe 
            width="750px"
            height="500"
-           src="https://www.youtube.com/embed/${item.key}"
+           src="https://www.youtube.com/embed/${trailerVideo[0].key}"
            alt=""
          ></iframe>
          <button id="closeBtn" class="close">Close</button>
        </div>`;
     })
-    .splice(0, 1);
+    .splice(0,1);
 
      trailerContainer.innerHTML = details;
+  }
+
 }
 
 function toggleBtn(){

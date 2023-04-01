@@ -70,6 +70,7 @@ function cardSyntax(movies) {
   container.innerHTML = details;
 }
 
+
 //filter to Most Popular- Fabio
 function mostPopular(popular){
   fetch(popular)
@@ -77,7 +78,7 @@ function mostPopular(popular){
      .then((data) => {
        const movie = data.results;
        cardSyntax(movie)
-       title.innerHTML = 'Most Popular'
+      title.innerHTML = 'Most Popular'
      })
      .catch((err) => console.log(err));
    }   
@@ -92,12 +93,14 @@ function topRated(bestRate){
      .then((response) => response.json())
      .then((data) => {
        const movie = data.results;
+       console.log(data.results)
        cardSyntax(movie)
        title.innerHTML = 'Best Rated'
      })
      .catch((err) => console.log(err));
    }   
 topRatedBtn.addEventListener('click', ()=> {
+  console.log(api_base + bestRated + api_key)
   topRated(api_base + bestRated + api_key)
 })
 
@@ -116,6 +119,7 @@ function upComing(upcomig){
 upComingBtn.addEventListener('click', ()=> {
   upComing(api_base + upcoming + api_key)
 })
+
 
 //filter to trending- Fabio
 function trending(trend){
