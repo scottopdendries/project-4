@@ -188,8 +188,6 @@ form {
   height: auto;
 }
 
-
-
 .rating {
   position: absolute;
   bottom: 15px;
@@ -213,6 +211,7 @@ footer {
   height: 100px;
   width: 100%;
   border-top: solid var(--red);
+  /* font-weight: bold; */
 }
 
 /*The "mobile-filter" code is used when using mobile screen to access the sort/filter icon*/
