@@ -50,8 +50,6 @@ function filter() {
 
 
 
-
-
 // CARD SYNTAX FUNCTION
 function cardSyntax(movies) {
   let details = movies.map((item) => {
@@ -130,7 +128,6 @@ function trending(trend){
 trend.addEventListener('click', ()=> {
   trending(api_base + trendingApi + api_key)
 })
-
 
 
 
