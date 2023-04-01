@@ -20,7 +20,6 @@ const topRatedBtn = document.querySelector('#topRated')
 const upComingBtn = document.querySelector('#upcoming')
 const trend = document.querySelector('#trend')
 
-const magnifyingGlass = document.querySelector(".magnifying-glass");
 
 // API FETCH
 function getMovies(api){
@@ -30,10 +29,6 @@ function getMovies(api){
         console.log(data);
         
         const movie = data.results;
-        // sortAtoZ(movie);
-        // sortByPopularity(movie);
-        // sortByReleaseDate(movie);
-        // sortByRating(movie);
         cardSyntax(movie)
       })
       .catch((err) => console.log(err));
@@ -147,28 +142,12 @@ form.addEventListener("submit", (e) => {
     getMovies(api_base + nowPlaying + api_key);
   }
     document.querySelector("#search").value="";
+
+    title.innerHTML = searchValue;
 });
 
 //As magnifying glass is inside of the form tag we dont
 // need to make another addEventListener. FABIO
-
-//The magnifying glass has the same code as the search code above, this time, when clicked, it will look up the search 
-// magnifyingGlass.addEventListener("click", (e) => {
-//   e.preventDefault();
-
-//   const searchValue = search.value;
-
-//   if (searchValue) {
-//     getMovies(searchURL +"&query="+ searchValue);
-//   } else {
-//     getMovies(api_base + nowPlaying + api_key);
-//   }
-//   document.querySelector("#search").value="";
-
-  // title.innerHTML = searchValue;
-
-  /*Trying to get the search value to mimic the input value, it briefly shows however the page refreshes and the text disappears */
-// });
 
 
 //Mobile Menu
