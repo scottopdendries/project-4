@@ -6,24 +6,6 @@
     --green: #1CBD19;
   }
 
-/* .back-arrow{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    border: transparent;
-    color: var(--red);
-    text-decoration: none;
-    position: fixed;
-    top: 125px;
-    left: 25px;
-    background-color: var(--black);
-    width: 50px;
-    height: 50px;
-    border: 3px solid var(--red);
-    border-radius: 25px;
-} */
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -38,7 +20,7 @@ nav {
 .details-images-container{
     display: flex;
     align-items: center;
-    /* background-color: red; */
+    justify-content: space-around;
 }
 
 .poster-container{
@@ -94,10 +76,12 @@ nav {
     margin-top: 50px;
     font-size: 22px;
     position: relative;
+    font-weight: bold;
 }
 
-footer {
-    /* position: fixed; */
+footer p{
+    position: relative;
+    font-weight: bold;
 }
 
 
@@ -108,7 +92,6 @@ footer {
     background-color: var(--red);
     cursor: pointer;
     padding: 10px; 
-    margin-right: 120px;
 }
 
 .close{
@@ -151,6 +134,12 @@ footer {
    display: none;
 }
 
+.trailerContainer{
+    text-align: center;
+    position: relative; /*position relative allows the trailer button to be accessible*/
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
 @media (max-width: 768px) {
 
@@ -161,5 +150,15 @@ footer {
     .details-container {
         width: auto;
         text-align: center;
+    }
+
+    .movie-info h1 {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .movie-info p {
+        margin-left: 40px;
+        margin-right: 40px;
     }
 }
