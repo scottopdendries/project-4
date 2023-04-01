@@ -11,59 +11,59 @@ fetch(
   )
     .then((res) => res.json())
     .then((json) => {
-        const movies = json;
+      const movies = json;
       displayMovie(movies.results); 
       console.log(movies.results);
     })
     .catch((err) => console.log(err));
   
-    function displayMovie(movies) {
+function displayMovie(movies) {
   /// Grabs the current url ID and stores to currentID - Raymond
-        let currentId;
-        const urlParams = new URLSearchParams(window.location.search);
-        currentId = urlParams.get("id");
+  let currentId;
+  const urlParams = new URLSearchParams(window.location.search);
+  currentId = urlParams.get("id");
 
-        /// Backdrop image - Raymond
-      let backDrop = movies.map((item) => {
-        if(currentId == item.id){
-      return`<div class="backdrop-container">
-              <img src="https://image.tmdb.org/t/p/original/${item.backdrop_path}" class="backdrop-img" alt="">
-            </div>`;
-            }
-    }).join('');
-    backdrop.innerHTML = backDrop;
+  /// Backdrop image - Raymond
+  let backDrop = movies.map((item) => {
+    if(currentId == item.id){
+    return`<div class="backdrop-container">
+          <img src="https://image.tmdb.org/t/p/original/${item.backdrop_path}" class="backdrop-img" alt="">
+        </div>`;
+        }
+  }).join('');
+  backdrop.innerHTML = backDrop;
 
   /// Takes the currently selected movie and loads the poster image - Raymond
-        let selectedMovie = movies.map((item) => {
-            if(currentId == item.id){
-          return`<div class="poster-image-container">
-          <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" class="poster-img" alt="">
-              <p class="rating" style="color: var(--gray);">${item.vote_average.toFixed(1)}</p>
-              </div>
-                `;
-                }
-        }).join('');
-        posterMovies.innerHTML = selectedMovie;
-
-/// Movie details - Raymond
-        let movieDetails = movies.map((item) => {
-          if(currentId == item.id){
-            const releaseDate = new Date(item.release_date);
-            const monthName = releaseDate.toLocaleString('default', { month: 'long' });
-            const day = releaseDate.getDate();
-            const year = releaseDate.getFullYear();
-            const newReleaseDate = `${monthName} ${day}, ${year}`;
-
-            return`<div class="movie-info">
-              <h1>${item.title}</h1>
-              <p>${item.overview}</p>
-              <p>Release Date: ${newReleaseDate}</p>
-            </div>`;
-              }
-      }).join('');
-      movieOverview.innerHTML = movieDetails;
-
+  let selectedMovie = movies.map((item) => {
+    if(currentId == item.id){
+      return`<div class="poster-image-container">
+            <img src="https://image.tmdb.org/t/p/original/${item.poster_path}" class="poster-img" alt="">
+                <p class="rating" style="color: var(--gray);">${item.vote_average.toFixed(1)}</p>
+                </div>
+                  `;
     }
+  }).join('');
+  posterMovies.innerHTML = selectedMovie;
+
+  /// Movie details - Raymond
+  let movieDetails = movies.map((item) => {
+    if(currentId == item.id){
+      const releaseDate = new Date(item.release_date);
+      const monthName = releaseDate.toLocaleString('default', { month: 'long' });
+      const day = releaseDate.getDate();
+      const year = releaseDate.getFullYear();
+      const newReleaseDate = `${monthName} ${day}, ${year}`;
+
+      return`<div class="movie-info">
+        <h1>${item.title}</h1>
+        <p>${item.overview}</p>
+        <p>Release Date: ${newReleaseDate}</p>
+        </div>`;
+    }
+  }).join('');
+  movieOverview.innerHTML = movieDetails;
+
+}
 
 
     
@@ -116,7 +116,7 @@ function toggleBtn(){
   const openBtn = document.querySelector('#openBtn')
   const closeBtn = document.querySelector('#closeBtn')
   const fade = document.querySelector("#fade");
-   const trailer1 = document.querySelector("#trailer");
+  const trailer1 = document.querySelector("#trailer");
 
    [openBtn, closeBtn].forEach((el)=> {
      el.addEventListener("click", () => {
