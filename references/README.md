@@ -1,20 +1,27 @@
 ## TO DO
 
 LIVE SERVER
-On Load (Scott) - main/index.html? Or move index.html out of folder?
+On Load - main/index.html? Or move index.html out of folder?
 
 MAIN
-Search (Ja'far) - On search, have the header show what was searched, or have text become hidden.
-Filter(Ja'far) - Have the menu disappear upon clicking on one of the options.
+Tablet/Mobile - While in tablet/mobile view, click the hamburger icon. The display looks columnar, and instead should be the mimo icon on the left, search bar in the middle, and the hamburger icon on the right, which operates the same as the sort/filter text would in the desktop view.
+
+On search, some of the ratings appear as "0.0". Update these to show as "N/A"
+Low priority: the odd time, a search result will return without an image. These can be skipped over.
 
 DETAILS
-Search (All) - Page not populating when using the non-main API.
-Trailers (Fabio) - Not stopping when video tab is closed.
-Trailers (Fabio) - Full screen not operational - should we have the trailer screen be larger to compensate?
+Search - Page not populating when using the non-main API.
+Trailers - Audio continues when video tab is closed.
+Trailers - Full screen not operational - should we have the trailer screen be larger to compensate?
 
-OPTIONAL (Once everything else is wrapping up)
+OPTIONAL
 Additional Filters
 Sign-in/Create account page
+
+FINAL
+Remove comments (*KEEP TITLES*)
+Run code through a validator
+
 
 
 
