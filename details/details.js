@@ -43,6 +43,14 @@ function displayMovie(movie) {
   console.log(selectedMovie);
   posterMovies.innerHTML = selectedMovie;
 
+  let movieDetails = `<div class="movie-info">
+  <h1>${movie.title}</h1>
+  <p>${movie.overview}</p>
+  <p>Release Date: ${movie.release_date}
+  </div>`;
+
+  movieOverview.innerHTML = movieDetails;
+
   /// Movie details - Raymond
   // let movieDetails = movies
   //   .map((item) => {
@@ -67,7 +75,6 @@ function displayMovie(movie) {
 }
 
 //trailer-----
-
 fetch(
   `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=477f5f5debaf48768ed55d725362b931`
 )
@@ -93,8 +100,8 @@ function displayTrailer(trailer) {
         <div id="fade" class="hide"></div>
          <div id="trailer" class="hide">
          <iframe 
-           width="750px"
-           height="500"
+           width="950px"
+           height="700"
            src="https://www.youtube.com/embed/${trailerVideo[0].key}"
            alt=""
          ></iframe>
