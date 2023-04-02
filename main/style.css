@@ -32,7 +32,8 @@ header {
 .mobile-header {
   flex-direction: column;
   justify-content: space-evenly;
-  height: 250px;
+  /* height: 250px; */
+  height: 320px;
   align-items: center;
   background-color: var(--black);
   padding-top: 10px;
@@ -219,6 +220,8 @@ footer {
 /*The "mobile-filter" code is used when using mobile screen to access the sort/filter icon*/
 .mobile-filter {
   display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Tablet */
@@ -226,7 +229,6 @@ footer {
 
   #hamburger-menu {
     display: block;
-    margin-right: 15px;
     cursor: pointer;
   }
 

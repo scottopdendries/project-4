@@ -93,7 +93,11 @@ function mostPopular(popular){
        const movie = data.results;
        cardSyntax(movie)
       title.innerHTML = 'Most Popular'
-      filter();
+      if (screen.width > 768) {
+        filter();
+      } else {
+        openMenu();
+      }
      })
      .catch((err) => console.log(err));
    }   
@@ -109,7 +113,11 @@ function topRated(bestRate){
        console.log(data.results)
        cardSyntax(movie)
        title.innerHTML = 'Best Rated'
-       filter();
+       if (screen.width > 768) {
+        filter();
+      } else {
+        openMenu();
+      }
      })
      .catch((err) => console.log(err));
    }   
@@ -125,7 +133,11 @@ function upComing(upcoming){
        const movie = data.results;
        cardSyntax(movie)
        title.innerHTML = 'Most Recent'
-       filter();
+       if (screen.width > 768) {
+        filter();
+      } else {
+        openMenu();
+      }
      })
      .catch((err) => console.log(err));
    }  
@@ -140,7 +152,11 @@ function trending(trend){
        const movie = data.results;
        cardSyntax(movie)
        title.innerHTML = 'Trending'
-       filter();
+       if (screen.width > 768) {
+        filter();
+      } else {
+        openMenu();
+      }
      })
      .catch((err) => console.log(err));
    }  
@@ -159,8 +175,8 @@ const openMenu = () => {
   header.classList.toggle("mobile-header");
   navbar.classList.toggle("mobile-menu");
   navbar.classList.toggle("browser-menu");
-  sort.classList.toggle("mobile-filter");
-  sort.classList.toggle("browser-filter");
+  dropdown.classList.toggle("mobile-filter");
+  dropdown.classList.toggle("no-content");
 };
 
 hamburgerMenu.onclick = openMenu;
