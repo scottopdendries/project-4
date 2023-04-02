@@ -1,25 +1,18 @@
 ## TO DO
 
 LIVE SERVER
-main/index.html? Or move index.html out of folder?
+On Load (Scott) - main/index.html? Or move index.html out of folder?
 
 MAIN
-Search (Raymond) - Change header to what was searched, or have text become hidden.
-Filter (Ja'far/Fabio) - A to Z filter (still being used?)
-Filter (Ja'far) - Disappear upon click
-Images (Scott) - Adjust images to look like the Figma file.
-Phone view (Ja'far) - Nav bar set up and grid display.
+Search (Ja'far) - On search, have the header show what was searched, or have text become hidden.
+Filter(Ja'far) - Have the menu disappear upon clicking on one of the options.
 
 DETAILS
-Nav (Ja'far) - have logo be set as anchor for home page
-Search Bar/Filter (All) - Is this necessary for the details page?
-Scaling (Scott/Raymond) - Poster image and middle (red) section display
-Text Opacity (Scott) - Fix text to not be transparent
-Search (Raymond) - Populate page on search
-Phone view (Raymond) - Set details phone screen to show poster image instead of backdrop image
+Search (All) - Page not populating when using the non-main API.
+Trailers (Fabio) - Not stopping when video tab is closed.
+Trailers (Fabio) - Full screen not operational - should we have the trailer screen be larger to compensate?
 
 OPTIONAL (Once everything else is wrapping up)
-Trailers
 Additional Filters
 Sign-in/Create account page
 

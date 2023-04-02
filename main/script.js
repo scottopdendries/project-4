@@ -105,7 +105,7 @@ function upComing(upcomig){
      .then((data) => {
        const movie = data.results;
        cardSyntax(movie)
-       title.innerHTML = 'Upcoming'
+       title.innerHTML = 'Most Recent'
      })
      .catch((err) => console.log(err));
    }  
