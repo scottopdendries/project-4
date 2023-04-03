@@ -43,27 +43,23 @@ function displayMovie(movie) {
   console.log(selectedMovie);
   posterMovies.innerHTML = selectedMovie;
 
-  /// Movie details - Raymond
-  // let movieDetails = movies
-  //   .map((item) => {
-  //     if (currentId == item.id) {
-  //       const releaseDate = new Date(item.release_date);
-  //       const monthName = releaseDate.toLocaleString("default", {
-  //         month: "long",
-  //       });
-  //       const day = releaseDate.getDate();
-  //       const year = releaseDate.getFullYear();
-  //       const newReleaseDate = `${monthName} ${day}, ${year}`;
+  /// Movie details 
+        const releaseDate = new Date(movie.release_date);
+        const monthName = releaseDate.toLocaleString("default", {
+          month: "long",
+        });
+        const day = releaseDate.getDate();
+        const year = releaseDate.getFullYear();
+        const newReleaseDate = `${monthName} ${day}, ${year}`;
 
-  //       return `<div class="movie-info">
-  //       <h1>${item.title}</h1>
-  //       <p>${item.overview}</p>
-  //       <p>Release Date: ${newReleaseDate}</p>
-  //       </div>`;
-  //     }
-  //   })
-  //   .join("");
-  // movieOverview.innerHTML = movieDetails;
+  let movieDetails = 
+         `<div class="movie-info">
+        <h1>${movie.title}</h1>
+         <p>${movie.overview}</p>
+         <p>Release Date: ${newReleaseDate}</p>
+         </div>`;
+movieOverview.innerHTML = movieDetails;        
+console.log(movie);
 }
 
 //trailer-----
