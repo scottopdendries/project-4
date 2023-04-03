@@ -54,7 +54,6 @@ nav button {
   justify-content: space-evenly;
 }
 
-/*This is the new menu during mobile settings once the hamburger icon is clicked*/
 .mobile-menu {
   height: 300px;
   display: flex;
@@ -71,8 +70,6 @@ nav button:hover {
 nav button:hover i {
   color: var(--black);
 }
-
-/*The two lines of code above allows to change the button AND the i element at the same time when hovering. The i is for the magnifying glass*/
 
 header img {
   height: 50px;
@@ -95,7 +92,6 @@ nav input {
   border-radius: 20px 0 0 20px;
   outline: none;
 }
-
 nav i {
   color: var(--red);
 }
@@ -105,30 +101,24 @@ nav i {
   color: var(--red);
 }
 
-/*Code for dropdown menu STARTS HERE...*/
-
+/* DROPDOWN MENU*/
 .rotate-arrow {
   rotate: 90deg;
   transition-duration: 1s;
 }
-
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
 .no-content {
   display: none;
 }
-
 .dropdown-content {
   position: absolute;
   z-index: 1;
   background-color: var(--black);
-  /* transition-delay: 5s; */
   border: 2px solid var(--red);
 }
-
 .dropdown-content button {
   color: var(--grey);
   padding: 12px 0 12px 15px;
@@ -139,8 +129,13 @@ nav i {
   
 }
 
-/*Code for dropdown menu ENDS HERE*/
 
+
+/* SEARCH BAR */
+form {
+  display: flex;
+  align-items: center;
+}
 .magnifying-glass {
   border: 1px solid var(--red);
   height: 40px;
@@ -148,6 +143,8 @@ nav i {
   border-radius: 0 20px 20px 0;
   padding-right: 30px;
 }
+
+
 
 .title{
   background-color: var(--grey);
@@ -157,11 +154,9 @@ nav i {
   padding: 10px;
 }
 
-form {
-  display: flex;
-  align-items: center;
-}
 
+
+/* IMAGE CONTAINER */
 .container{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -179,18 +174,15 @@ form {
   padding: 10px;
   transition: 0.5s;
 }
-
 .card:hover{
   transform: scale(1.1);
 }
-
 .card img {
   border-radius: 25px;
   width: 100%;
   height: auto;
   border: 3px solid var(--black);
 }
-
 .rating {
   position: absolute;
   bottom: 15px;
@@ -205,6 +197,8 @@ form {
   border-radius: 25px;
 }
 
+
+
 footer {
   display: flex;
   justify-content: center;
@@ -214,39 +208,31 @@ footer {
   height: 100px;
   width: 100%;
   border-top: solid var(--red);
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 
-/*The "mobile-filter" code is used when using mobile screen to access the sort/filter icon*/
-.mobile-filter {
-  display: block;
-  display: flex;
-  flex-direction: column;
-}
 
-/* Tablet */
+
+/* TABLET */
 @media (max-width: 768px) {
-
   #hamburger-menu {
     display: block;
     cursor: pointer;
   }
-
   .browser-filter {
     display: none;
   }
-  /*Hamburger menu for mobile screen ENDS HERE*/
-
   .container{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     grid-gap: 10px;
     padding: 0 20px;
   }
-
 }
 
-/* Phone */
+
+
+/* PHONE */
 @media (max-width: 480px) {
   .container{
     grid-template-columns: repeat(2, 1fr);
@@ -254,4 +240,9 @@ footer {
     grid-gap: 5px;
     padding: 0 10px;
   }
+}
+.mobile-filter {
+  display: block;
+  display: flex;
+  flex-direction: column;
 }

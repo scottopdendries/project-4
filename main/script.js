@@ -38,10 +38,8 @@ function getMovies(api){
   
     
     
-    
-    
-    // CARD SYNTAX
-    function cardSyntax(movies) {
+// CARD SYNTAX
+function cardSyntax(movies) {
   let details = movies.map((item) => {
     return` 
     <a class="card" href="../details/details.html?id=${item.id}">
@@ -51,6 +49,8 @@ function getMovies(api){
   }).join('');
   container.innerHTML = details;
 }
+
+
 
 // SEARCH 
 form.addEventListener("submit", (e) => {

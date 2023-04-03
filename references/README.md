@@ -1,27 +1,21 @@
 ## TO DO
 
-LIVE SERVER
-On Load - main/index.html? Or move index.html out of folder?
-
-MAIN
-Tablet/Mobile - While in tablet/mobile view, click the hamburger icon. The display looks columnar, and instead should be the mimo icon on the left, search bar in the middle, and the hamburger icon on the right, which operates the same as the sort/filter text would in the desktop view.
-
-On search, some of the ratings appear as "0.0". Update these to show as "N/A"
-Low priority: the odd time, a search result will return without an image. These can be skipped over.
-
 DETAILS
-Search - Page not populating when using the non-main API.
 Trailers - Audio continues when video tab is closed.
-Trailers - Full screen not operational - should we have the trailer screen be larger to compensate?
+Trailers - Mobile/tablet view may need a slight tweak to fit smaller screens.
+
+LOW PRIORITY
+Update ratings that appear as "0.0" to show as "N/A" instead.
+Infrequently, results will return without an image. These empty/incomplete returns can be skipped over.
 
 OPTIONAL
-Additional Filters
 Sign-in/Create account page
+Additional Filters
+Styling/polish
 
 FINAL
-Remove comments (*KEEP TITLES*)
 Run code through a validator
-
+Add to Netlify
 
 
 
