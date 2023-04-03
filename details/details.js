@@ -1,9 +1,9 @@
-/// This is for showing the backdrop and poster image - Raymond
+/// BACKDROP AND POSTER IMAGE
 const posterMovies = document.querySelector(".poster-container");
 const movieOverview = document.querySelector(".details-container");
 const backdrop = document.querySelector(".backdrop");
 
-//trailer
+// TRAILER
 const trailerContainer = document.querySelector(".trailerContainer");
 let currentId;
 const urlParams = new URLSearchParams(window.location.search);
@@ -22,15 +22,14 @@ fetch(
   .catch((err) => console.log(err));
 
 function displayMovie(movie) {
-  /// Grabs the current url ID and stores to currentID - Raymond
-
+  /// Grabs the current url ID and stores to currentID
   let backDrop = `<div class="backdrop-container">
           <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" class="backdrop-img" alt="">
         </div>`;
 
   backdrop.innerHTML = backDrop;
 
-  /// Takes the currently selected movie and loads the poster image - Raymond
+  /// Takes the currently selected movie and loads the poster image
   let selectedMovie = `<div class="poster-image-container">
             <img src="https://image.tmdb.org/t/p/original/${
               movie.poster_path
@@ -43,7 +42,7 @@ function displayMovie(movie) {
   console.log(selectedMovie);
   posterMovies.innerHTML = selectedMovie;
 
-  /// Movie details 
+  /// MOVIE DETAILS
         const releaseDate = new Date(movie.release_date);
         const monthName = releaseDate.toLocaleString("default", {
           month: "long",
@@ -62,8 +61,7 @@ movieOverview.innerHTML = movieDetails;
 console.log(movie);
 }
 
-//trailer-----
-
+// TRAILER
 fetch(
   `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=477f5f5debaf48768ed55d725362b931`
 )

@@ -89,8 +89,7 @@ main {
     font-weight: bold;
 }
 
-/* =========== Trailer */
-
+/* TRAILER */
 .open{
     border: 3px solid var(--black);
     background-color: var(--red);
@@ -157,7 +156,7 @@ footer{
     opacity: 60%;
 }
 
-
+/* TABLET/PHONE */
 @media (max-width: 768px) {
 
     .poster-container {
