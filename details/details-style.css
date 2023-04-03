@@ -70,6 +70,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
 }
 
 .movie-info h1{
