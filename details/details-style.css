@@ -153,6 +153,7 @@ main {
 footer{
     position: fixed;
     bottom: 0;
+    opacity: 60%;
 }
 
 
