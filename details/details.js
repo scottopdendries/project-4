@@ -101,6 +101,10 @@ function displayTrailer(trailer) {
 
     trailerContainer.innerHTML = details;
     toggleBtn();
+  }else{
+    let details =
+    '<button class="no-trailer">NO TRAILER AVAILABLE</button>'
+    trailerContainer.innerHTML = details;
   }
 }
 
