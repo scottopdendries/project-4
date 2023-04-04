@@ -42,6 +42,8 @@ function displayMovie(movie) {
   console.log(selectedMovie);
   posterMovies.innerHTML = selectedMovie;
 
+
+  
   /// MOVIE DETAILS
         const releaseDate = new Date(movie.release_date);
         const monthName = releaseDate.toLocaleString("default", {
@@ -87,8 +89,8 @@ function displayTrailer(trailer) {
         <div id="fade" class="hide"></div>
          <div id="trailer" class="hide">
          <iframe 
-           width="750px"
-           height="500"
+           width="950px"
+           height="700"
            src="https://www.youtube.com/embed/${trailerVideo[0].key}"
            alt=""
          ></iframe>
