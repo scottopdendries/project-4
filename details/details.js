@@ -79,7 +79,7 @@ function displayTrailer(trailer) {
         <button id="openBtn" class="open" >WATCH TRAILER</button>
         <div id="fade" class="hide"></div>
          <div id="trailer" class="hide">
-         <iframe 
+         <iframe id="video" 
            width="950px"
            height="700"
            src="https://www.youtube.com/embed/${trailerVideo[0].key}"
@@ -104,11 +104,21 @@ function toggleBtn() {
   const closeBtn = document.querySelector("#closeBtn");
   const fade = document.querySelector("#fade");
   const trailer1 = document.querySelector("#trailer");
+  const trailerIframe = trailer1.querySelector("iframe");
 
   [openBtn, closeBtn].forEach((el) => {
     el.addEventListener("click", () => {
       fade.classList.toggle("hide");
       trailer1.classList.toggle("hide");
+
+      // Check if the trailer is being opened or closed
+      if (trailer1.classList.contains("hide")) {
+        // Remove the src attribute to stop the video from playing
+        trailerIframe.removeAttribute("src");
+      } else {
+        // Add the src attribute to start playing the video
+        trailerIframe.setAttribute("src", `https://www.youtube.com/embed/${trailerVideo[0].key}`);
+      }
     });
   });
 }
