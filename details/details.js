@@ -17,16 +17,12 @@ fetch(
     const movies = json;
     console.log(movies);
     displayMovie(movies);
-    // console.log(movies.results);
   })
   .catch((err) => console.log(err));
 
 function displayMovie(movie) {
-  /// Grabs the current url ID and stores to currentID
-  let backDrop = `<div class="backdrop-container">
-          <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" class="backdrop-img" alt="">
-        </div>`;
-
+  /// Load the backdrop image into the backdrop container
+  let backDrop = `<img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" class="backdrop-img" alt="">`;
   backdrop.innerHTML = backDrop;
 
   /// Takes the currently selected movie and loads the poster image
@@ -39,11 +35,9 @@ function displayMovie(movie) {
                 )}</p>
                 </div>
                   `;
-  console.log(selectedMovie);
   posterMovies.innerHTML = selectedMovie;
 
 
-  
   /// MOVIE DETAILS
         const releaseDate = new Date(movie.release_date);
         const monthName = releaseDate.toLocaleString("default", {
@@ -59,8 +53,7 @@ function displayMovie(movie) {
          <p>${movie.overview}</p>
          <p>Release Date: ${newReleaseDate}</p>
          </div>`;
-movieOverview.innerHTML = movieDetails;        
-console.log(movie);
+  movieOverview.innerHTML = movieDetails;        
 }
 
 // TRAILER
@@ -70,13 +63,11 @@ fetch(
   .then((res) => res.json())
   .then((json) => {
     const trailer = json.results;
-    // console.log(trailer);
     displayTrailer(trailer);
   })
   .catch((err) => console.log(err));
 
 function displayTrailer(trailer) {
-  console.log("trailer ", trailer);
   const trailerVideo = trailer.filter((movie) => {
     return movie.name === "Official Trailer";
   });
